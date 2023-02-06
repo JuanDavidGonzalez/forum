@@ -17,13 +17,13 @@
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description:</label>
-                    <textarea class="form-control @error('title') is-invalid @enderror" id="description" name="description" rows="3"></textarea>
+                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3"></textarea>
                     @error('description')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>  
                 <div class="mb-3">
-                    <label for="description" class="form-label">Load Image:</label>
+                    <label for="image" class="form-label">Load Image:</label>
                     <input type="file" name="image" />
                     @error('image')
                         <span class="invalid-feedback">{{ $message }}</span>

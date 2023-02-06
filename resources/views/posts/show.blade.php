@@ -34,7 +34,7 @@
             <div class="col-md-12">
                 @auth
                     <div class="d-flex flex-row-reverse mb-3">
-                        <a href="" class="btn btn-success" title="Create Post">
+                        <a href="{{route('response.create', $post->id)}}" class="btn btn-success" title="Create Post">
                             Add Answer
                         </a>
                     </div>
@@ -48,6 +48,10 @@
                                 <tr>
                                     <td><b>{{$response->username}}</b></td>
                                     <td><p>{{$response->response_text}}</p></td>
+                                    <td>
+                                        <img src="{{asset('storage/'.$response->image)}}" 
+                                        class="img-fluid rounded mx-auto d-block" alt="response_image">
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
