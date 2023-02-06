@@ -74,7 +74,21 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                @if(session('fail'))
+                    <div class="alert alert-danger">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <span>{{ session('fail') }}</span>
+                    </div>
+                @endif
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <span>{{ session('success') }}</span>
+                    </div>
+                @endif
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>
