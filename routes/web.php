@@ -22,3 +22,4 @@ Route::redirect('/home', '/post');
 
 //POST
 Route::get('/post', [PostController::class, 'index'])->name('post.index');
+Route::get('/post/{post}/show', [PostController::class, 'show'])->name('post.show');

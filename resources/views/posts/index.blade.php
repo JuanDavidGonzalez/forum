@@ -21,6 +21,7 @@
                             <tr>
                                 <th>Id.</th>
                                 <th>Title</th>
+                                <th>Username</th>
                                 <th>Creted At</th>
                                 <th></th>
                             </tr>
@@ -30,9 +31,10 @@
                                 <tr>
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->title}}</td>
+                                    <td>{{$post->username}}</td>
                                     <td>{{$post->created_at}}</td>
                                     <td>
-                                        <a href="" class="btn btn-success" title="Show">
+                                        <a href="{{route('post.show', $post->id)}}" class="btn btn-success" title="Show">
                                             Show
                                         </a>
                                     </td>

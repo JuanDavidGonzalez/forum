@@ -23,4 +23,9 @@ class Post extends Model
     public function getUsernameAttribute(){
         return $this->user->name;
     }
+
+    public function responses()
+    {
+        return $this->hasMany(Response::class);
+    }
 }
