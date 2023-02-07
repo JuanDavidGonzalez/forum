@@ -3,21 +3,20 @@
         <div class="card-header text-bg-success">Responses</div>
 
         <div class="card-body">
-            <add-response-component 
+            <add-response-component v-if="is_auth == 1"
                 :post_id="post_id"
                 @reload-responses="getResponses">
             </add-response-component>
             <div class="row">
                 <div class="col-md-12">               
-                    <table class='table table-striped table-bordered table-fi' style="table-layout: fixed;" >
+                    <table class='table table-striped table-bordered table-fi' >
                         <tbody>
                             <tr v-for = "response in responses.data">
                                 <td><b>{{response.username}}</b></td>
                                 <td><p>{{response.response_text}}</p></td>
                                 <td>
                                     <img v-if="response.image" :src="response.image" 
-                                    class='img-fluid rounded mx-auto d-block' alt='response_image'
-                                    style="max-width: 250px; max-height: 250px;">
+                                    class='img-fluid rounded mx-auto d-block' alt='response_image'>
                                 </td>
                             </tr>
                         </tbody>
@@ -42,6 +41,7 @@ import AddResponseComponent from './AddResponseComponent.vue';
         },
         props: {
             post_id: {type: String},
+            is_auth: {type: String},
         },
         data() {
             return {
@@ -63,3 +63,11 @@ import AddResponseComponent from './AddResponseComponent.vue';
         },
     }
 </script>
+<style scope>
+    table{
+        table-layout: fixed;
+    }
+    img{
+        max-width: 250px; max-height: 250px;
+    }
+</style>

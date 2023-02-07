@@ -24,7 +24,7 @@
                 </div>  
                 <div class="mb-3">
                     <label for="image" class="form-label">Load Image:</label>
-                    <input type="file" name="image" />
+                    <input type="file" class="form-control" name="image" />
                     @error('image')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror

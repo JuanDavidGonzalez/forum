@@ -15,7 +15,7 @@
                 <div class="mb-3">
                     <label for="sort_by" class="form-label">Sort by Tittle:</label>
                     <select class="form-select" name="sort_by">
-                        <option selected>---</option>
+                        <option selected disabled>---</option>
                         <option value="DESC" {{'DESC' == request('sort_by')?'Selected':''}}>Desc</option>
                         <option value="ASC"  {{'ASC' == request('sort_by')?'Selected':''}}>Asc</option>
                     </select>

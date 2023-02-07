@@ -36,7 +36,7 @@
         </div> 
     </div> 
     <div id='response' class='mt-4'>
-        <response-component post_id={{$post->id}}></response-component>
+        <response-component post_id='{{$post->id}}' is_auth='{{auth()->check()}}'></response-component>
     </div>    
 
 @endsection

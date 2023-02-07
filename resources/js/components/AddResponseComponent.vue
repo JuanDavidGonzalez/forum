@@ -1,6 +1,5 @@
 <template>
-    <div>
-    <form class="bg-light mb-3 p-3" @submit.prevent="createResponse"  accept-charset="UTF-8" enctype="multipart/form-data">
+    <form class="bg-light mb-3 p-3" @submit.prevent="createResponse">
         <div class="row mb-2">
             <div class="col-md-10">
                 <textarea type="text" class="form-control" 
@@ -20,7 +19,6 @@
         </div>
         
     </form>
-</div>
 </template>
 
 <script>
