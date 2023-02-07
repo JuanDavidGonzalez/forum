@@ -23,10 +23,10 @@ Route::redirect('/home', '/post');
 
 //Post
 Route::prefix('post')->name('post.')->group(function () {
-Route::get('/', [PostController::class, 'index'])->name('index');
-Route::get('{post}/show', [PostController::class, 'show'])->name('show');
-Route::get('create', [PostController::class, 'create'])->name('create')->middleware('auth');
-Route::post('store', [PostController::class, 'store'])->name('store')->middleware('auth');
+    Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::get('{post}/show', [PostController::class, 'show'])->name('show');
+    Route::get('create', [PostController::class, 'create'])->name('create')->middleware('auth');
+    Route::post('store', [PostController::class, 'store'])->name('store')->middleware('auth');
 });
 
 // Response
@@ -34,3 +34,4 @@ Route::middleware('auth')->prefix('post')->name('response.')->group(function () 
     Route::get('response/{post_id}', [ResponseController::class, 'create'])->name('create');
     Route::post('response/{post_id}', [ResponseController::class, 'store'])->name('store');
 });
+Route::get('post/get_responses/{post_id}', [ResponseController::class, 'list'])->name('response.list');

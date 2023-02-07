@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Response;
+use App\Http\Resources\ResponseResource;
 
 class ResponseController extends Controller
 {
@@ -30,5 +31,13 @@ class ResponseController extends Controller
 
         $response->save();
         return redirect()->route('post.show', $post_id)->with('success', 'Response created successfully');
+    }
+
+    public function list($post_id)
+    {
+        $responses = Response::where('post_id', $post_id)->get();
+
+        return ResponseResource::collection($responses);
+        // return response()->json($responses);
     }
 }
