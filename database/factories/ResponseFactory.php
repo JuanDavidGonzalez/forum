@@ -18,7 +18,7 @@ class ResponseFactory extends Factory
     {
         return [
             'response_text' => fake()->text(),
-            'post_id' => rand(1, 10),
+            'post_id' => 21,
             'user_id' => rand(1, 10),
         ];
     }

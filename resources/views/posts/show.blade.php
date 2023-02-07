@@ -36,7 +36,7 @@
     </div> 
 
     @auth
-        <div class='d-flex flex-row-reverse mb-3'>
+        <div class='d-flex flex-row-reverse my-3'>
             <a href='{{route('response.create', $post->id)}}' class='btn btn-success' title='Create Post'>
                 Add Answer
             </a>

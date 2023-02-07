@@ -18,6 +18,7 @@ class ResponseResource extends JsonResource
             'response_text' => $this->response_text,
             'username' => $this->username,
             'created_at' => $this->created_at,
+            'image' =>  $this->image?asset("storage/{$this->image}"):NULL,
         ];
     }
 }

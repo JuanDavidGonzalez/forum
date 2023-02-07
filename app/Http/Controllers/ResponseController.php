@@ -35,9 +35,8 @@ class ResponseController extends Controller
 
     public function list($post_id)
     {
-        $responses = Response::where('post_id', $post_id)->get();
+        $responses = Response::where('post_id', $post_id)->paginate(3);
 
         return ResponseResource::collection($responses);
-        // return response()->json($responses);
     }
 }
