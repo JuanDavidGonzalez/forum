@@ -20,22 +20,23 @@ class ResponseController extends Controller
             'response_text' => 'required',
         ]);
 
-
         $response = new Response();
         $response->fill($request->all());
         $response->user_id = auth()->user()->id;
         $response->post_id = $post_id;
 
-        $path = $request->file('image')->store('response_images', 'public');
-        $response->image = $path;
+        if($request->file('image')){
+            $path = $request->file('image')->store('response_images', 'public');
+            $response->image = $path;
+        }
 
         $response->save();
-        return redirect()->route('post.show', $post_id)->with('success', 'Response created successfully');
+        return;
     }
 
     public function list($post_id)
     {
-        $responses = Response::where('post_id', $post_id)->paginate(3);
+        $responses = Response::where('post_id', $post_id)->latest()->paginate(3);
 
         return ResponseResource::collection($responses);
     }

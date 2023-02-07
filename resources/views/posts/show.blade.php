@@ -24,7 +24,8 @@
                     </p>
                         
                     @if($post->image)
-                        <img src='{{asset('storage/'.$post->image)}}' class='img-fluid rounded mx-auto d-block' alt='post_image'>
+                        <img src='{{asset('storage/'.$post->image)}}' class='img-fluid rounded mx-auto d-block' alt='post_image'
+                         style='max-width: 300px; max-height: 300px;'>
                     @else
                         <div class='alert alert-info' role='alert'>
                             No image!
@@ -34,17 +35,8 @@
             </div> 
         </div> 
     </div> 
-
-    @auth
-        <div class='d-flex flex-row-reverse my-3'>
-            <a href='{{route('response.create', $post->id)}}' class='btn btn-success' title='Create Post'>
-                Add Answer
-            </a>
-        </div>
-    @endauth
-    <br>
-    <div id='response'>
-        <response-component></response-component>
+    <div id='response' class='mt-4'>
+        <response-component post_id={{$post->id}}></response-component>
     </div>    
 
 @endsection
