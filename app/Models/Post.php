@@ -28,4 +28,22 @@ class Post extends Model
     {
         return $this->hasMany(Response::class);
     }
+
+    public function scopeSearchTitle($query, $search)
+    {
+        if (empty($search)) {
+            return;
+        }
+
+        $query->Where('title', 'like', "%{$search}%");
+    }    
+    
+    public function scopeSortByTitle($query, $search)
+    {
+        if (empty($search)) {
+            return;
+        }
+
+        $query->OrderBy('title', $search);
+    }
 }

@@ -10,7 +10,8 @@ class PostController extends Controller
 {
     public function index(Request $request){
 
-        $posts = Post::paginate(10);
+        $posts = Post::searchTitle(request('title'))
+                        ->sortByTitle(request('sort_by'))->paginate(10);
 
         return view('posts.index', compact('posts'));
     }
