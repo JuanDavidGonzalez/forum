@@ -37,11 +37,13 @@ class PostController extends Controller
         $post->fill($request->all());
         $post->user_id = auth()->user()->id;
 
-        $path = $request->file('image')->store('post_images', 'public');
-        $post->image = $path;
+        if($request->file('image')){
+            $path = $request->file('image')->store('post_images', 'public');
+            $post->image = $path;
+        }
 
         $post->save();
-        // dd($request->all());
+        
         return redirect()->route('post.index')->with('success', 'Post created successfully');
 
     }

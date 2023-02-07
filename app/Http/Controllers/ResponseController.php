@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Response;
 use App\Http\Resources\ResponseResource;
+use Symfony\Component\HttpFoundation\Response as HTTPResp;
 
 class ResponseController extends Controller
 {
@@ -32,7 +33,7 @@ class ResponseController extends Controller
         }
 
         $response->save();
-        return;
+        return response()->json(['response' => $response], HTTPResp::HTTP_CREATED);
     }
 
     public function list($post_id)
