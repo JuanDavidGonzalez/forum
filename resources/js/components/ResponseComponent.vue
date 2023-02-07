@@ -12,7 +12,7 @@
                     <table class='table table-striped table-bordered table-fi' >
                         <tbody>
                             <tr v-for = "response in responses.data">
-                                <td><b>{{response.username}}</b></td>
+                                <td><b>{{response.username}}</b><br><small>{{response.created_at}}</small> </td>
                                 <td><p>{{response.response_text}}</p></td>
                                 <td>
                                     <img v-if="response.image" :src="response.image" 
