@@ -18,6 +18,7 @@ class ResponseController extends Controller
 
         $validated = $request->validate([
             'response_text' => 'required',
+            'image' => 'nullable|image',
         ]);
 
         $response = new Response();
