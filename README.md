@@ -57,5 +57,5 @@ The project content:
 - 2 vue components
 - Fetures tests
 
-![ExampleImage](img_1.png)
-![ExampleImage](img_2.png)
+![ExampleImage](img_1.jpg)
+![ExampleImage](img_2.jpg)
